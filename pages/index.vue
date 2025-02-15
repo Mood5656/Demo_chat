@@ -35,7 +35,6 @@ export default {
                 { id: 1, name: "Anton", messages: [] },
                 { id: 2, name: 'Zack', messages: [] }
             ],
-            messages: [],
             selectedChat: null,
             username: '',
             connect: false
@@ -67,9 +66,6 @@ export default {
             this.socket.emit('chat message', { sender: this.username, text: data.text, receiver: this.selectedChat.name })
         },
     },
-    mounted() {
-        console.log('first change')
-    }
 };
 </script>
 
