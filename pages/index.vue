@@ -67,6 +67,9 @@ export default {
             this.socket.emit('chat message', { sender: this.username, text: data.text, receiver: this.selectedChat.name })
         },
     },
+    mounted() {
+        console.log('first change')
+    }
 };
 </script>
 
