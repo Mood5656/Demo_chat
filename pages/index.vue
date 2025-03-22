@@ -35,6 +35,7 @@ export default {
                 { id: 1, name: "Anton", messages: [] },
                 { id: 2, name: 'Zack', messages: [] }
             ],
+            messages: [],
             selectedChat: null,
             username: '',
             connect: false
@@ -53,7 +54,7 @@ export default {
             if (this.username.length > 0) {
                 const toast = useToast()
                 this.connect = true
-                this.socket = io('ws://localhost:3000');
+                this.socket = io('ws://localhost:3000')
                 this.socket.emit('logged_in', { username: this.username })
                 this.socket.on('chat message', (data) => {
                     this.chats.find(chat => chat.name === data.sender).messages.push({ text: data.text, sender: data.sender, receiver: data.receiver })
